@@ -1,0 +1,37 @@
+{% extends 'partials/base.html' %}
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-10">
+            {{ map1|safe }}
+        </div>
+        <div class="col-md-2">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Vessel</th>
+                        <th scope="col">CallSign</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for vessel in vessels %}
+                    
+                    <tr>
+                        <th scope="row">{{forloop.counter}}</th>
+                        {% for info in vessel %}
+                        <td>{{info}}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+
+                
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
